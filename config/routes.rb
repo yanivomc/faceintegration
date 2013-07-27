@@ -1,6 +1,10 @@
 Faceintegration::Application.routes.draw do
 
+  get "static_pages/home"
 
+  get "static_pages/help"
+
+  root to: 'static_pages#home'
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
